@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "name": "Joao",
+      "avatar_url": "https://google.com",
+      "birth": 925948800000,
+      "gender": "M",
+      "services": "Musc",
+      "created_at": 1593613904114
+    },
+    {
+      "id": 2,
+      "name": "Natal",
+      "avatar_url": "https://google.com",
+      "birth": 148204944000000,
+      "gender": "M",
+      "services": "Crossfit",
+      "created_at": 1593614030227
+    }
+  ]
+}
