@@ -22,16 +22,15 @@
 
             <div class="item">
                 <div>Sexo</div>
-                <div>{{ instructor.gender }}</div>
+                <div>{{"Masculino" if instructor.gender == "M" else "Feminino" }}</div>
             </div>
 
             <div class="item">
                 <div>Acompanhamento</div>
                 <div>
-                   {% for service in services %}
-                   <span>{{ instructor.service }}</span>
-                   {% endfor %}
-                   
+                    {% for service in instructor.services %}
+                    <span>{{ service }}</span>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -40,8 +39,9 @@
                 <div>{{ instructor.created_at }}</div>
             </div>
 
-        </section>
+            <a href="/instructors/{{ instructor.id }}/edit" class="button">Editar</a>
 
+        </section>
     </div>
 
 
