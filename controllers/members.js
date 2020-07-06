@@ -1,29 +1,10 @@
 const fs = require('fs')
 const data = require("../data.json")
-const { age, date } = require('../utils')
+const { date } = require('../utils')
 
 
 exports.index = function(req, res) {
     return res.render("members/index", { members: data.members})
-}
-
-exports.show = function(req, res) {
-    //req.params.id =/:id/:member
-    const { id } = req.params
-
-    const foundMember = data.members.find(function(member){
-        return member.id == id
-    })
-
-    if (!foundMember) return res.send("Member not found")
-    
-    const member = {
-        ...foundMember,
-        age: age(foundMember.birth),
-    }
-
-
-    return res.render("members/show", { member })
 }
 
 exports.create = function(req, res) {
@@ -40,21 +21,20 @@ exports.post = function(req, res) {
                 return res.send('Pleas fill all fields!')
         }
 
-        let {avatar_url, birth, name, services, gender} = req.body
+        birth = Date.parse(req.body.birth)
+        // const created_at = Date.now()
+        let id = 1
+        const lastMember = data.members[data.members.length - 1]        
 
-        birth = Date.parse(birth)
-        const created_at = Date.now()
-        const id = Number(data.members.length + 1)
+        if(lastMember) {
+            id = lastMember.id + 1
+        }
 
 
         data.members.push({
             id,
-            name,
-            avatar_url,
+            ...req.body,
             birth,
-            gender,
-            services,
-            created_at
         }) 
 
         fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
@@ -62,8 +42,25 @@ exports.post = function(req, res) {
 
             return res.redirect(`members/${id}`)
         })
+}
 
-        // return res.send(req.body)
+exports.show = function(req, res) {
+    //req.params.id =/:id/:member
+    const { id } = req.params
+
+    const foundMember = data.members.find(function(member){
+        return member.id == id
+    })
+
+    if (!foundMember) return res.send("Member not found")
+    
+    const member = {
+        ...foundMember,
+        birth: date(foundMember.birth).birthDay,
+    }
+
+
+    return res.render("members/show", { member })
 }
 
 exports.edit = function(req, res) {
@@ -77,7 +74,7 @@ exports.edit = function(req, res) {
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth)
+        birth: date(foundMember.birth).iso
     }
 
     return res.render("members/edit", { member })

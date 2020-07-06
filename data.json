@@ -1,5 +1,17 @@
 {
-  "members" : [],
+  "members": [
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1557704195-4a4678d44806?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      "name": "Jouliana",
+      "email": "da32@gmail.com",
+      "birth": 973123200000,
+      "gender": "F",
+      "blood": "A+",
+      "weight": "60",
+      "height": "170",
+      "id": 1
+    }
+  ],
   "instructors": [
     {
       "id": 1,
@@ -27,6 +39,15 @@
       "gender": "F",
       "services": "Musculação, natação",
       "created_at": 1593614030227
+    },
+    {
+      "id": 4,
+      "name": "Joane",
+      "avatar_url": "https://images.unsplash.com/photo-1593490342963-a8a6f0f7b1e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      "birth": 972864000000,
+      "gender": "F",
+      "services": "Crossfit",
+      "created_at": 1594047865213
     }
   ]
 }
