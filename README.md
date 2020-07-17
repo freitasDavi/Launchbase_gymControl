@@ -1,7 +1,7 @@
 #  Controle de Academia
 
 <h1 allign="center">
-    <img src="assets/academy_gif.gif">
+    <img src="public/academy_gif.gif">
 </h1>
 
 #     Indice
