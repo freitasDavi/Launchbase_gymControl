@@ -35,7 +35,7 @@ O Projeto foi desenvolvidos utlizando as seguintes tecnologias
 ```
     # Clonar o repositório
 
-    $ git clone https://github.com/tekuninn/Launchbase_gymControl
+    $ git clone https://github.com/freitasDavi/Launchbase_gymControl
 
     # Instalar o node
 
